@@ -12,10 +12,10 @@
  *
  * Este script é parte o curso de ADS.
  */
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  // Se você tiver outras configurações, adicione-as aqui.
 };
 
-export default nextConfig;
+module.exports = nextConfig;
