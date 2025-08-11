@@ -8,40 +8,55 @@
  * Rota de API para atualizar e deletar clientes.
  * Este script é parte o curso de ADS.
  */
-import { supabase } from '@/app/lib/supabaseClient'; // Ajuste o caminho se necessário
+import { NextResponse } from 'next/server';
+import { supabase } from '@/app/lib/supabaseClient';
 
 // UPDATE (PATCH)
-export async function PATCH(request: Request, { params }: { params: { id: string } }) {
-  const clienteId = params.id;
-  const dadosAtualizados = await request.json();
+// A assinatura foi alterada para ser mais robusta para o build.
+export async function PATCH(request: Request, context: { params: { id: string } }) {
+  try {
+    // Acessamos o ID a partir do objeto 'context'
+    const clienteId = context.params.id;
+    const dadosAtualizados = await request.json();
 
-  const { data, error } = await supabase
-    .from('clientes')
-    .update(dadosAtualizados)
-    .eq('id', clienteId) // A condição WHERE id = ...
-    .select()
-    .single();
+    const { data, error } = await supabase
+      .from('clientes')
+      .update(dadosAtualizados)
+      .eq('id', clienteId)
+      .select()
+      .single();
 
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
+    if (error) {
+      // É uma boa prática retornar a mensagem de erro em um objeto JSON
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    return NextResponse.json(data, { status: 200 });
+
+  } catch (err) {
+    return NextResponse.json({ error: 'Erro ao processar a requisição.' }, { status: 500 });
   }
-
-  return new Response(JSON.stringify(data), { status: 200 });
 }
-
 // DELETE
-export async function DELETE(request: Request, { params }: { params: { id: string } }) {
-  const clienteId = params.id;
+// A assinatura foi alterada para ser mais robusta para o build.
+export async function DELETE(request: Request, context: { params: { id: string } }) {
+  try {
+    // Acessamos o ID a partir do objeto 'context'
+    const clienteId = context.params.id;
 
-  const { error } = await supabase
-    .from('clientes')
-    .delete()
-    .eq('id', clienteId); // A condição WHERE id = ...
+    const { error } = await supabase
+      .from('clientes')
+      .delete()
+      .eq('id', clienteId);
 
-  if (error) {
-    return new Response(JSON.stringify({ error: error.message }), { status: 400 });
+    if (error) {
+      return NextResponse.json({ error: error.message }, { status: 400 });
+    }
+
+    // Retorno para sucesso sem conteúdo
+    return new Response(null, { status: 204 });
+
+  } catch (err) {
+    return NextResponse.json({ error: 'Erro ao processar a requisição.' }, { status: 500 });
   }
-
-  // 204 significa sucesso, sem conteúdo para retornar
-  return new Response(null, { status: 204 });
 }
