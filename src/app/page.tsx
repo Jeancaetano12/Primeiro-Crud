@@ -27,9 +27,6 @@ export default function Home() {
         <p className="mt-2 text-gray-600 dark:text-gray-400">
           Este é o conteúdo da sua página principal.
         </p>
-        {/* NO FUTURO, AQUI ENTRARÁ A SUA LISTA DE CLIENTES,
-        GRÁFICOS E OUTRAS INFORMAÇÕES.
-        */}
       </DashboardLayout>
     </main>
   );

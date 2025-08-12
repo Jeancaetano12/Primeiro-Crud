@@ -12,7 +12,9 @@
  *
  * Este script é parte o curso de ADS.
  */
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
   --background: #ffffff;

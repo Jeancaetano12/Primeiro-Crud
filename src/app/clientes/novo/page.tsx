@@ -62,72 +62,74 @@ export default function NovoClientePage() {
         Cadastrar Novo Cliente
       </h1>
       <hr />
-      <form onSubmit={handleSubmit} className="mt-6 max-w-lg">
-        <div className="space-y-4">
-          <div>
-            <label htmlFor="nome" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Nome
-            </label>
-            <input
-              type="text"
-              id="nome"
-              value={nome}
-              onChange={(event) => setNome(event.target.value)}
-              required
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
+      <div className="flex flex-col items-center">
+        <form onSubmit={handleSubmit} className="mt-6 max-w-lg grid grid-cols-2 gap-4">
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="nome" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Nome
+             </label>
+              <input
+                type="text"
+                id="nome"
+                value={nome}
+                onChange={(event) => setNome(event.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Email
+              </label>
+              <input
+                type="email"
+                id="email"
+                value={email}
+                onChange={(event) => setEmail(event.target.value)}
+                required
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
           </div>
-          <div>
-            <label htmlFor="email" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Email
-            </label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(event) => setEmail(event.target.value)}
-              required
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="telefone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              Telefone
-            </label>
-            <input
-              type="text"
-              id="telefone"
-              value={telefone}
-              onChange={(event) => setTelefone(event.target.value)}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-          <div>
-            <label htmlFor="cpf" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
-              CPF
-            </label>
-            <input
-              type="text"
-              id="cpf"
-              value={cpf}
-              onChange={(event) => setCpf(event.target.value)}
-              className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
-            />
-          </div>
-        </div>
 
-        {error && <p className="mt-4 text-red-500">{error}</p>}
+          {error && <p className="mt-4 text-red-500">{error}</p>}
 
-        <div className="mt-6">
-          <button
-            type="submit"
-            disabled={submitting}
-            className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
-          >
-            {submitting ? 'Salvando...' : 'Salvar Cliente'}
-          </button>
-        </div>
-      </form>
+          <div className="space-y-4">
+            <div>
+              <label htmlFor="cpf" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                CPF
+              </label>
+              <input
+                type="text"
+                id="cpf"
+                value={cpf}
+                onChange={(event) => setCpf(event.target.value)}
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            <div>
+              <label htmlFor="telefone" className="block text-sm font-medium text-gray-700 dark:text-gray-300">
+                Telefone
+              </label>
+              <input 
+                type="text"
+                id="telefone"
+                value={telefone}
+                onChange={(event) => setTelefone(event.target.value)}
+                className="mt-1 block w-full px-3 py-2 bg-white dark:bg-gray-700 border border-gray-300 dark:border-gray-600 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+            <button
+              type="submit"
+              disabled={submitting}
+              className="w-full px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 disabled:bg-gray-400"
+            >
+              {submitting ? 'Salvando...' : 'Salvar Cliente'}
+            </button>
+          </div>
+        </form>
+      </div>
     </DashboardLayout>
   );
 }

@@ -13,7 +13,7 @@ import { supabase } from "@/app/lib/supabaseClient";
 
 export async function GET() {
     const { data, error } = await supabase.from('clientes').select('*');
-    console.log("Dados recebidos:", data);
+    console.log("Dados recebidos com sucesso:");
 
     if (error) {
         console.error("Erro do Supabase:", error.message);
