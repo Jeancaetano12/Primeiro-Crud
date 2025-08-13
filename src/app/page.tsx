@@ -21,7 +21,7 @@ export default function Home() {
       {/* Aqui vamos construir nosso dashboard */}
       <DashboardLayout>
         <h1 className="text-center text-3xl font-mono font-bold text-gray-800 dark:text-gray-200">
-          Dashboard Inicial
+          Página Inicial
         </h1>
         <hr />
         <p className="mt-2 text-gray-600 dark:text-gray-400">

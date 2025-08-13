@@ -9,11 +9,14 @@
  * Este script é parte o curso de ADS.
  */
 import { NextResponse } from 'next/server';
-import { supabase } from '@/app/lib/supabaseClient';
+import { createClient } from '@/app/lib/supabase/server';
 
 // UPDATE (PATCH)
 // A assinatura foi alterada para ser mais robusta para o build.
 export async function PATCH(request: Request, context: { params: { id: string } }) {
+  
+  const supabase = createClient();
+
   try {
     // Acessamos o ID a partir do objeto 'context'
     const clienteId = context.params.id;
@@ -40,6 +43,8 @@ export async function PATCH(request: Request, context: { params: { id: string } 
 // DELETE
 // A assinatura foi alterada para ser mais robusta para o build.
 export async function DELETE(request: Request, context: { params: { id: string } }) {
+
+  const supabase = createClient();
   try {
     // Acessamos o ID a partir do objeto 'context'
     const clienteId = context.params.id;

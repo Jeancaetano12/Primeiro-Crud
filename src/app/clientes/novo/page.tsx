@@ -46,7 +46,7 @@ export default function NovoClientePage() {
       // Se tudo deu certo, exibe uma mensagem de sucesso
       window.alert('Cliente cadastrado com sucesso!');
       // Se tudo deu certo, redireciona o usuário de volta para a lista
-      router.push('/clientes/inicio');
+      router.push('/');
 
     } catch (err: any) {
         window.alert(err.message);
