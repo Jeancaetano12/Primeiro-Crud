@@ -10,12 +10,10 @@
  */
 import { NextResponse } from 'next/server';
 // 1. Importe o cliente de SERVIDOR
-import { createClient } from '@/app/lib/supabase/server';
+import { createClientAuth } from '@/app/lib/supabase/server'; // Deixado aqui caso volte a usar RLS
+import { supabase } from '@/app/lib/supabase/client'; // Importa o cliente do Supabase
 
 export async function GET() {
-  const supabase = createClient();
-  // RLS de leitura podem precisar de um usuário autenticado no futuro,
-  // então é bom já usar o cliente correto aqui também.
   const { data, error } = await supabase.from('clientes').select('*');
 
   if (error) {
@@ -27,31 +25,14 @@ export async function GET() {
 }
 
 export async function POST(request: Request) {
-  // 2. Crie uma instância do cliente autenticado
-  const supabase = createClient();
-
   try {
-    // 3. Verifique quem é o usuário logado
-    const { data: { user } } = await supabase.auth.getUser();
-
-    // Se não houver usuário, retorne um erro de não autorizado
-    if (!user) {
-      return NextResponse.json({ error: 'Ação não autorizada.' }, { status: 401 });
-    }
-
     const novoCliente = await request.json();
 
-    // 4. ADICIONE O ID DO USUÁRIO AO NOVO CLIENTE ANTES DE INSERIR!
-    const dadosParaInserir = {
-      ...novoCliente,
-      user_id: user.id, // Esta é a correção fundamental
-    };
-
     const { data, error } = await supabase
-      .from('clientes')
-      .insert(dadosParaInserir) // Insere os dados com o user_id
-      .select()
-      .single();
+    .from('clientes')
+    .insert(novoCliente)
+    .select()
+    .single();
 
     if (error) {
       console.error("Erro ao inserir cliente:", error.message);

@@ -58,7 +58,7 @@ export default function NovoClientePage() {
 
   return (
     <DashboardLayout>
-      <h1 className="text-center text-3xl font-mono font-bold text-gray-800 dark:text-gray-200">
+      <h1 className="text-3xl mb-6 font-mono font-bold text-gray-800 dark:text-gray-200">
         Cadastrar Novo Cliente
       </h1>
       <hr />

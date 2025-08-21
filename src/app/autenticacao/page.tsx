@@ -13,13 +13,14 @@
 // Na sua pasta de autenticação, dentro do arquivo page.tsx
 'use client';
 
-import { createClient } from '../lib/supabase/client';
+// import { createClient } from '../lib/supabase/client'; <-- RECURSO DESATIVADO
 import { Auth } from '@supabase/auth-ui-react';
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '../components/DashboardLayout';
 
 export default function PaginaDeAutenticacao() {
+/** 
   const supabase = createClient();
   const router = useRouter();
 
@@ -31,7 +32,7 @@ export default function PaginaDeAutenticacao() {
       router.push('/clientes');
     }
   });
-
+*/
   return (
     <DashboardLayout>
         <h1 className="text-center text-3xl font-mono font-bold text-gray-800 dark:text-gray-200">
@@ -43,14 +44,15 @@ export default function PaginaDeAutenticacao() {
             <div className="w-full max-w-md p-8 space-y-8 bg-white rounded-lg shadow-lg dark:bg-gray-800">
                 <div>
                     <h1 className="text-2xl font-bold text-center text-gray-900 dark:text-white">
-                        Acesse sua Conta
+                        Recurso Desativado
                     </h1>
                     <p className="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
-                        Para atualizar ou deletar algo neste banco é necessário estar autenticado.
+                        Pagina em construção.
                     </p>
                 </div>
-        {/* Este é o componente mágico do Supabase */}
-                <Auth
+                {/* Este é o componente mágico do Supabase */}
+                {/* RECURSO DESATIVADO */}
+                {/*<Auth
                     supabaseClient={supabase}
                     appearance={{ theme: ThemeSupa }}
                     providers={['github', 'google']} // Exemplo: adicione login com GitHub e Google
@@ -75,7 +77,7 @@ export default function PaginaDeAutenticacao() {
                             },
                         },
                     }}
-                />
+                />*/} 
             </div>
         </div>
     </DashboardLayout>   
