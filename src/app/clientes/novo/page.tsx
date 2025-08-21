@@ -63,7 +63,7 @@ export default function NovoClientePage() {
       </h1>
       <hr />
       <div className="flex flex-col items-center">
-        <form onSubmit={handleSubmit} className="mt-6 max-w-lg grid grid-cols-2 gap-4">
+        <form onSubmit={handleSubmit} className="mt-6 max-w-lg gap-4">
           <div className="space-y-4">
             <div>
               <label htmlFor="nome" className="block text-sm font-medium text-gray-700 dark:text-gray-300">

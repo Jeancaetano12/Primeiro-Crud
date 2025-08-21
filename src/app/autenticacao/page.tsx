@@ -47,7 +47,7 @@ export default function PaginaDeAutenticacao() {
                         Recurso Desativado
                     </h1>
                     <p className="mt-2 text-sm text-center text-gray-600 dark:text-gray-400">
-                        Pagina em construção.
+                        Autenticação não é necessaria para nada no momento. Veja mais informações no repositório.
                     </p>
                 </div>
                 {/* Este é o componente mágico do Supabase */}

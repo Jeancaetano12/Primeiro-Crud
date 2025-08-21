@@ -68,8 +68,8 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
         {/* 5. AQUI ESTÁ O FEEDBACK VISUAL */}
         <div className="border-t border-gray-200 dark:border-gray-700 pt-4">
           <button 
-          onClick={() => window.open("https://github.com/Jeancaetano12", "_blank")}
-          className="block p-2 rounded text-center bg-blue-600 text-white hover:bg-blue-700">
+          onClick={() => window.open("https://github.com/Jeancaetano12/Primeiro-Crud", "_blank")}
+          className="block ml-9 p-2 rounded text-center bg-blue-600 text-white hover:bg-blue-700">
             Ver Repositorio
           </button>
         </div>
