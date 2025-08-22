@@ -9,39 +9,31 @@
  * Este script é parte o curso de ADS.
  */
 import { NextResponse } from 'next/server';
-// 1. Importe o cliente de SERVIDOR
-import { createClientAuth } from '@/app/lib/supabase/server'; // Deixado aqui caso volte a usar RLS
-import { supabase } from '@/app/lib/supabase/client'; // Importa o cliente do Supabase
+import { PrismaClient } from '@prisma/client'; // Chamando client prisma para acessar o banco
+// import { createClientAuth } from '@/app/lib/supabase/server'; /// Deixado aqui caso volte a usar RLS do Supabase
+// import { supabase } from '@/app/lib/supabase/client'; /// Deixado aqui caso volte a usar o cliente do Supabase
+
+const prisma = new PrismaClient();
 
 export async function GET() {
-  const { data, error } = await supabase.from('clientes').select('*');
-
-  if (error) {
-    console.error("Erro do Supabase:", error.message);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  try {
+    const clientes = await prisma.clientes.findMany();
+    return NextResponse.json(clientes);
+  } catch (error) {
+    console.error("Erro na função GET usando prismaClient:", error);
+    return NextResponse.json({ error: "Erro na função GET usando prismaClient:" }, { status: 500 });
   }
-
-  return NextResponse.json(data);
 }
 
 export async function POST(request: Request) {
   try {
     const novoCliente = await request.json();
-
-    const { data, error } = await supabase
-    .from('clientes')
-    .insert(novoCliente)
-    .select()
-    .single();
-
-    if (error) {
-      console.error("Erro ao inserir cliente:", error.message);
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-    
-    return NextResponse.json(data, { status: 201 });
+    const clienteCriado = await prisma.clientes.create({
+      data: novoCliente
+    });
+    return NextResponse.json(clienteCriado, { status: 201 });
   } catch (error) {
-    console.error("Requisição inválida:", error);
-    return NextResponse.json({ error: "Requisição inválida" }, { status: 500 });
+    console.error("Erro na função POST usando prismaClient:", error);
+    return NextResponse.json({ error: "Erro na função POST usando prismaClient:" }, { status: 500 });
   }
 }

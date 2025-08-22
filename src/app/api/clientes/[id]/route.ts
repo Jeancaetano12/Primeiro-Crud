@@ -9,56 +9,39 @@
  * Este script é parte o curso de ADS.
  */
 import { NextResponse } from 'next/server';
-import { createClientAuth } from '@/app/lib/supabase/server'; // Deixado aqui caso volte a usar RLS
-import { supabase } from '@/app/lib/supabase/client'; // Cliente Supabase genérico.
-// UPDATE (PATCH)
-// A assinatura foi alterada para ser mais robusta para o build.
-export async function PATCH(request: Request, context: { params: { id: string } }) {
+import { PrismaClient } from '@prisma/client'; // Chamando client prisma para acessar o banco
+// import { createClientAuth } from '@/app/lib/supabase/server'; /// Deixado aqui caso volte a usar RLS do Supabase
+// import { supabase } from '@/app/lib/supabase/client'; /// Deixado aqui caso volte a usar o cliente do Supabase
+const prisma = new PrismaClient();
 
+export async function PATCH(request: Request, context: { params: { id: string } }) {
   try {
     // Acessamos o ID a partir do objeto 'context'
     const clienteId = context.params.id;
     const dadosAtualizados = await request.json();
-
-    const { data, error } = await supabase
-      .from('clientes')
-      .update(dadosAtualizados)
-      .eq('id', clienteId)
-      .select()
-      .single();
-
-    if (error) {
-      // É uma boa prática retornar a mensagem de erro em um objeto JSON
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-
-    return NextResponse.json(data, { status: 200 });
-
-  } catch (err) {
-    return NextResponse.json({ error: 'Erro ao processar a requisição.' }, { status: 500 });
+    const clienteAtualizado = await prisma.clientes.update({
+      where: { id: clienteId }, // Onde o ID for igual a clienteId
+      data: dadosAtualizados,
+    });
+    return NextResponse.json(clienteAtualizado, {status: 200 });
+  } catch (error) {
+    console.error("Erro na função PATCH usando prismaClient:", error)
+    return NextResponse.json({ error: "Erro na função PATCH usando prismaClient:"}, { status: 500 });
   }
 }
-// DELETE
-// A assinatura foi alterada para ser mais robusta para o build.
-export async function DELETE(request: Request, context: { params: { id: string } }) {
 
+export async function DELETE(request: Request, context: { params: { id: string } }) {
   try {
     // Acessamos o ID a partir do objeto 'context'
     const clienteId = context.params.id;
 
-    const { error } = await supabase
-      .from('clientes')
-      .delete()
-      .eq('id', clienteId);
+    await prisma.clientes.delete({
+      where: { id: clienteId }, // Onde o ID for igual a clienteId
 
-    if (error) {
-      return NextResponse.json({ error: error.message }, { status: 400 });
-    }
-
-    // Retorno para sucesso sem conteúdo
-    return new Response(null, { status: 204 });
-
-  } catch (err) {
-    return NextResponse.json({ error: 'Erro ao processar a requisição.' }, { status: 500 });
+    });
+    return NextResponse.json({ message: "Cliente deletado com sucesso" }, { status: 200 });
+  } catch (error) {
+    console.error("Erro na função DELETE usando prismaClient:", error);
+    return NextResponse.json({ error: "Erro na função DELETE usando prismaClient:" }, { status: 500 });
   }
 }
