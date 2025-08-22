@@ -9,11 +9,9 @@
  * Este script é parte o curso de ADS.
  */
 import { NextResponse } from 'next/server';
-import { PrismaClient } from '@prisma/client'; // Chamando client prisma para acessar o banco
+import prisma from '@/app/lib/prisma/prisma'; // Chamando client prisma para acessar o banco
 // import { createClientAuth } from '@/app/lib/supabase/server'; /// Deixado aqui caso volte a usar RLS do Supabase
 // import { supabase } from '@/app/lib/supabase/client'; /// Deixado aqui caso volte a usar o cliente do Supabase
-const prisma = new PrismaClient();
-
 export async function PATCH(request: Request, context: { params: { id: string } }) {
   try {
     // Acessamos o ID a partir do objeto 'context'
