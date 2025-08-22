@@ -13,6 +13,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation'; // Hook para redirecionamento
 import DashboardLayout from '@/app/components/DashboardLayout';
+import toast from 'react-hot-toast';
 
 export default function NovoClientePage() {
   const router = useRouter(); // Inicializa o hook de roteamento
@@ -44,12 +45,12 @@ export default function NovoClientePage() {
       }
 
       // Se tudo deu certo, exibe uma mensagem de sucesso
-      window.alert('Cliente cadastrado com sucesso!');
+      toast.success('Cliente cadastrado com sucesso!');
       // Se tudo deu certo, redireciona o usuário de volta para a lista
       router.push('/clientes');
 
     } catch (err: any) {
-        window.alert(err.message);
+        toast.error(err.message);
       setError(err.message);
     } finally {
       setSubmitting(false);

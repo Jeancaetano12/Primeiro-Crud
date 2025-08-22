@@ -16,9 +16,9 @@ O projeto foi construído do zero, passando por um intenso processo de depuraç�
 * ✅ **Criação de Clientes (`Create`):** Formulário dedicado para adicionar novos clientes.
 * ✅ **Atualização de Clientes (`Update`):** Edição dos dados de um cliente existente através de uma janela **modal**, proporcionando uma experiência de usuário fluida sem a necessidade de navegar para outra página.
 * ✅ **Deleção de Clientes (`Delete`):** Remoção de clientes do banco de dados com um diálogo de confirmação para previnir ações acidentais.
-* ✅ **Autenticação de Usuários:** Sistema completo de Login e Cadastro utilizando o **Supabase Auth UI**, permitindo que **FUTURAS FUNCIONALIDADES** sejam protegidas e vinculadas a usuários específicos.
+* ✅ **Autenticação de Usuários:** Utilizando biblioteca `ORM Prisma` para consultar o banco de dados PostgreSQL da Supabase.
 * ✅ **Notificações Toast:** Feedback visual instantâneo para o usuário após cada operação (criação, atualização, deleção), utilizando a biblioteca `react-hot-toast`.
-* ✅ **Layout Responsivo:** Interface construída com **Tailwind CSS**, adaptável a diferentes tamanhos de tela.
+* ✅ **Layout Responsivo:** Interface construída com `Tailwind CSS`, adaptável a diferentes tamanhos de tela.
 
 ## 🚀 Tecnologias Utilizadas
 
