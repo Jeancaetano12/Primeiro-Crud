@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "prisma generate && next build",
+    "dev:network": "next dev -H 0.0.0.0",
     "start": "next start",
     "lint": "next lint",
     "prisma:pull": "dotenv -e .env.local -- npx prisma db pull"
