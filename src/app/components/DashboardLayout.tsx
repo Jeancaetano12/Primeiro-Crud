@@ -54,7 +54,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
       >
         <div>
           <div className="mb-8">
-            <h1 className="text-2xl font-mono font-bold">Meu CRUD</h1>
+            <h1 className="text-2xl font-mono font-bold">CRUD</h1>
           </div>
           <nav>
             <ul>
@@ -71,6 +71,11 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               <li className="mb-2">
                 <Link href="/clientes" className="block p-2 rounded hover:bg-cyan-200 dark:hover:bg-cyan-950">
                   Gerenciar Clientes
+                </Link>
+              </li>
+              <li>
+                <Link href="/swagger" className="block p-2 rounded hover:bg-cyan-200 dark:hover:bg-cyan-950">
+                  Documentação Swagger
                 </Link>
               </li>
               <li>
