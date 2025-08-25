@@ -11,12 +11,13 @@ O projeto foi construído do zero, passando por um intenso processo de depuraç�
 **🔗 Deploy do Projeto:** [[Link para a Vercel aqui](https://primeiro-crud-testes.vercel.app)]
 
 ## ✨ Funcionalidades Implementadas
-
+* ✅ **Utilizando APIs `REST`:** Todas APIs padronizadas com modelo **REST**.
 * ✅ **Listagem de Clientes (`Read`):** Visualização em tempo real de todos os clientes cadastrados no banco de dados.
 * ✅ **Criação de Clientes (`Create`):** Formulário dedicado para adicionar novos clientes.
 * ✅ **Atualização de Clientes (`Update`):** Edição dos dados de um cliente existente através de uma janela **modal**, proporcionando uma experiência de usuário fluida sem a necessidade de navegar para outra página.
 * ✅ **Deleção de Clientes (`Delete`):** Remoção de clientes do banco de dados com um diálogo de confirmação para previnir ações acidentais.
-* ✅ **Autenticação de Usuários:** Utilizando biblioteca `ORM Prisma` para consultar o banco de dados PostgreSQL da Supabase.
+* ✅ **Autenticação de Usuários:** Utilizando biblioteca `ORM Prisma` para consultar e proteger o banco de dados PostgreSQL da Supabase.
+* ✅ **Open API Swagger:** Utilizando padronização `Swagger` para documentar APIs.
 * ✅ **Notificações Toast:** Feedback visual instantâneo para o usuário após cada operação (criação, atualização, deleção), utilizando a biblioteca `react-hot-toast`.
 * ✅ **Layout Responsivo:** Interface construída com `Tailwind CSS`, adaptável a diferentes tamanhos de tela.
 
@@ -28,8 +29,8 @@ Este projeto foi construído com as seguintes tecnologias na sua base:
 * **Linguagem:** [TypeScript](https://www.typescriptlang.org/)
 * **Estilização:** [Tailwind CSS](https://tailwindcss.com/) (v3)
 * **Backend e Banco de Dados:** [Supabase](https://supabase.io/) (PostgreSQL)
-* **Autenticação:** [Supabase Auth](https://supabase.com/docs/guides/auth)
-* **Componentes de UI (Auth):** `@supabase/auth-ui-react`
+* **ORM Prisma:** [Prisma](https://www.prisma.io) (v6)
+* **OpenAPI Swagger:** [Swagger](https://swagger.io) (v6)
 * **Notificações:** `react-hot-toast`
 * **Deploy:** [Vercel](https://vercel.com/)
 
