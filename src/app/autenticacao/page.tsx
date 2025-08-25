@@ -19,6 +19,13 @@ import { ThemeSupa } from '@supabase/auth-ui-shared';
 import { useRouter } from 'next/navigation';
 import DashboardLayout from '../components/DashboardLayout';
 
+// PAGINA DESATIVADA. DEIXADA AQUI PARA CASO PRECISE USAR FUTURAMENTE
+
+
+
+
+
+
 export default function PaginaDeAutenticacao() {
 /** 
   const supabase = createClient();

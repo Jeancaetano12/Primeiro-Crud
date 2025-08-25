@@ -78,11 +78,6 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                   Documentação Swagger
                 </Link>
               </li>
-              <li>
-                <Link href="/autenticacao" className="block p-2 rounded hover:bg-cyan-200 dark:hover:bg-cyan-950">
-                  Autenticação
-                </Link>
-              </li>
             </ul>
           </nav>
         </div>
