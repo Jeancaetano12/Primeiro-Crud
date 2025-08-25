@@ -35,14 +35,11 @@ export default function Home() {
             garantir uma base de código estável, segura e alinhada com as melhores práticas de desenvolvimento web
             atuais.
           </div>
-          <div className="bg-white dark:bg-gray-800 p-4 mt-2 rounded">
-            <h2 className="text-xl text-center font-bold mb-2">✨ Funcionalidades</h2>
-            <ul className="list-disc list-inside">
-              <li>✅ Listagem de Clientes (Read): Visualização em tempo real de todos os clientes cadastrados no banco de dados.</li>
-              <li>✅ Criação de Clientes (Create): Formulário dedicado para adicionar novos clientes.</li>
-              <li>✅ Atualização de Clientes (Update): Edição dos dados de um cliente existente através de uma janela modal, proporcionando uma experiência de usuário fluida sem a necessidade de navegar para outra página.</li>
-              <li>✅ Exclusão de Clientes (Delete): Remoção de clientes do sistema de forma simples e rápida.</li>
-            </ul>
+          <div className="bg-white dark:bg-gray-800 p-4 mt-2 rounded border border-red-700 dark:border-red-500">
+            <h2 className="text-xl text-center font-bold mb-2">Atenção ⚠️</h2>
+            <p className="mb-2 text-center">Esta aplicação é uma demonstração. <span className="underline underline-offset-3 decoration-2 decoration-red-600 dark:decoration-red-600 text-shadow-lg/55">
+              Não insira dados sensíveis em nenhum momento</span>.</p>
+              <p className="mb-2 text-center">Essa aplicação não possui verificação de dados, é puramente uma prova de conceito e os dados aqui registrados não são utilizados para <span className="underline underline-offset-3 decoration-2 decoration-red-600 dark:decoration-red-600 text-shadow-lg/55">nada</span>.</p>
           </div>
         </div>
         {/* Divisoria bonintinha */}
