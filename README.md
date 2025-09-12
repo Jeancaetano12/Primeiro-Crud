@@ -4,11 +4,11 @@
 
 ## 📜 Sobre o Projeto
 
-Este é um projeto de back-end desenvolvido como parte do curso de Análise e Desenvolvimento de Sistemas. A aplicação implementa um **CRUD (Create, Read, Update, Delete)** completo para gerenciar uma lista de clientes, utilizando tecnologias modernas do ecossistema JavaScript/TypeScript.
+Este é um projeto Full-stack desenvolvido como parte do curso de Análise e Desenvolvimento de Sistemas. A aplicação implementa um **CRUD (Create, Read, Update, Delete)** completo para gerenciar uma lista de clientes, utilizando tecnologias modernas do ecossistema JavaScript/TypeScript.
 
 O projeto foi construído do zero, passando por um intenso processo de depuração e refatoração para garantir uma base de código estável, segura e alinhada com as melhores práticas de desenvolvimento web atuais.
 
-**🔗 Deploy do Projeto:** [[Link para a Vercel aqui](https://primeiro-crud-testes.vercel.app)]
+**🔗 Deploy do Projeto:** [[Link para a Vercel](https://primeiro-crud-testes.vercel.app)]
 
 ## ✨ Funcionalidades Implementadas
 * ✅ **Utilizando APIs `REST`:** Todas APIs padronizadas com modelo **REST**.
